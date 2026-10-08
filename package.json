@@ -1,0 +1,67 @@
+{
+  "name": "dsh-tide",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：看时机的优雅暂停 —— 峰谷切换问询优雅暂停、余额不足强制降级收尾、看门狗自动唤醒续跑。双交接（人 + 模型），日志全留痕",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "cordis-plugin",
+    "tide",
+    "pause",
+    "budget",
+    "balance",
+    "peak",
+    "handoff",
+    "graceful"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.mjs",
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": ">=0.2.0-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-llm": "^0.2.0-rc.1",
+    "@deepseek-ai/dsh-tools": "^0.2.0-rc.1",
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "node test/sim.mjs"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-llm": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-tools": "^0.2.0-rc.2",
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wobenshiwomu/dsh-tide.git"
+  }
+}

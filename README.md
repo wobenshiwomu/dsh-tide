@@ -1,5 +1,7 @@
 # dsh-tide
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-zh.svg)](https://dsh.market/)
+
 > DeepSeek Harness 插件：**看时机的优雅暂停（Graceful Pause on Timing）**。
 > 退潮时暂停，涨潮时回来 —— 在"时机不对"的时刻，让 agent 优雅地把项目停在安全点、
 > 留下可继承的交接，而不是硬停或继续烧钱。

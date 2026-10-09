@@ -46,15 +46,20 @@ dsh plugin --profile web add 'https://codeload.github.com/wobenshiwomu/dsh-tide/
 或在图形界面：侧栏「插件」→ 添加插件 → 填上面这条 URL。装完重启 DSH 生效。
 URL 末段的 `v0.1.0` 是版本标签；升级时换成本仓库的新版本标签重装即可。
 
+**无需配置，开箱即用**：装好即生效——内置峰时窗口（周一至五 09:00–12:00 / 14:00–18:00，北京时间）、
+余额降级（触发线 ¥5 / 恢复线 ¥20）、看门狗每 15 分钟自动巡查。不写任何配置就是这套默认行为；
+下面的配置全部可选，只想自定义行为时才需要。
+
 **本地/开发安装**（本机路径）：
 
 ```sh
 dsh plugin --profile web add /path/to/dsh-tide
 ```
 
-**配置**（profile 用户层 `cordis.patch.yml`，覆盖构建默认）：
+**可选配置**（profile 用户层 `cordis.patch.yml`，覆盖构建默认；不配置即用默认值）：
 
 ```yaml
+# 示例：仅当要改默认值（触发线 5 / 恢复线 20）时才需要
 - id: dsh-tide
   config:
     lowBalanceCNY: 1        # 低余额触发线（元）
@@ -68,7 +73,7 @@ dsh plugin --profile web add /path/to/dsh-tide
 > ⚠️ 触发线必须小于恢复线（`low < resume`）；相等或倒置会形成"唤醒后立刻再暂停"循环，
 > 启动时会打印配置提醒。
 
-## 配置项（全量）
+## 配置项（全量 · 全部可选，不配置即取默认）
 
 | 键 | 默认 | 说明 |
 |---|---|---|
@@ -114,5 +119,3 @@ dsh plugin --profile web add /path/to/dsh-tide
 npm install   # 首次：安装测试所需的宿主依赖
 npm test      # 仿真测试：89 项断言（时钟/窗口/同意/双交接/看门狗/跨重启/跨进程）
 ```
-
-`e2e/` 目录留有真实环境 E2E 用过的配置样例（含 mock 余额服务器脚本）供参考。
